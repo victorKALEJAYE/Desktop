@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Admin Dashboard</title>
+</head>
+<body onload="displayUserInfo()">
+    <nav>
+        <div class="Company-title">
+           <img src="./SVG/view-dashboard.svg" alt="Dashboard">
+            <h1>Dashboard</h1>
+        </div>
+        <ul>
+            <li>
+                <img src="./SVG/home-account.svg" alt="">
+                <p>Home</p>
+            </li>
+            <li>
+                <img src="./SVG/card-account-details.svg" alt="">
+                <p>Profile</p>
+            </li>
+            <li>
+                <img src="./SVG/message-text.svg" alt="">
+                <p>Messages</p>
+            </li>
+            <li>
+                <img src="./SVG/clock-outline.svg" alt="">
+                <p>History</p>
+            </li>
+            <li>
+                <img src="./SVG/note-multiple.svg" alt="">
+                <p>Tasks</p>
+            </li>
+            <li>
+                <img src="./SVG/account-group.svg" alt="">
+                <p>Communities</p>
+            </li>
+            <ul class="setting">
+                <li>
+                    <img src="./SVG/cog-box.svg" alt="">
+                    <p>Setting</p>
+                </li>
+                <li>
+                    <img src="./SVG/eye-plus-outline.svg" alt="">
+                    <p>Support</p>
+                </li>
+                <li>
+                    <img src="./SVG/shield-check-outline.svg" alt="">
+                    <p>Privacy</p>
+                </li>
+            </ul>
+        </ul>
+    </nav>
+    <main>
+        <header>
+            <div class="top-section">
+                <div class="search-input">
+                    <img src="./SVG/magnify.svg" alt="Magnifing Glass">
+                    <input type="text" placeholder="Search">
+                </div>
+                <div class="account">
+                    <img class="noti" src="./SVG/bell-ring.svg" alt="Notification Bell">
+                    <img class="github-img-one" src="./Profile-Account-Imgs/Account-1.png" alt="Github Profile One">
+                    <h3 id="userProfileName">User Name</h3> <!-- Placeholder for User Name -->
+                </div>
+            </div>
+            <div class="bottom-section">
+                <div class="first-part">
+                    <img class="github-img-one" src="./Profile-Account-Imgs/Account-1.png" alt="Github Profile One">
+                    <div class="profile-title">
+                        <p>Hi there,</p>
+                        <h3 id="userProfileHandle">User Handle</h3> <!-- Placeholder for User Handle -->
+                    </div>
+                </div>
+                <div class="second-part">
+                    <button>New </button>
+                    <button>Upload</button>
+                    <button>Share</button>
+                </div>
+            </div>
+        </header>
+        <section>
+            <!-- Your other sections -->
+        </section>
+    </main>
+
+    <script>
+        function displayUserInfo() {
+            const user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                document.getElementById('userProfileName').textContent = user.username;
+                document.getElementById('userProfileHandle').textContent = `(@${user.username})`;
+            }
+        }
+    </script>
+</body>
+</html>
